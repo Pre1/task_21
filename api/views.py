@@ -10,13 +10,18 @@ from .serializers import (
     RestaurantListSerializer,
     RestaurantDetailSerializer,
     RestaurantCreateUpdateSerializer,
+    RegistrationSerializer,
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .permissions import IsOwner
 from rest_framework.filters import OrderingFilter, SearchFilter
 
+from django.contrib.auth.models import User
+
 #Complete ME!
-class RegisterView():
+class RegisterView(CreateAPIView):
+    serializer_class = RegistrationSerializer
+
 
 class RestaurantListView(ListAPIView):
     queryset = Restaurant.objects.all()
